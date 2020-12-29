@@ -3,7 +3,10 @@ import requests
 IP = 'http://192.168.1.11:5000'
 
 def get_processes():
-    return requests.get(IP+'/get_all_volume').json()['processes']
+    try:
+        return requests.get(IP+'/get_all_volume').json()['processes']
+    except:
+        return []
 
 
 def increment(name):
